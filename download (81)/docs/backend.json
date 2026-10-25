@@ -1,0 +1,349 @@
+{
+  "entities": {
+    "UserProfile": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "UserProfile",
+      "type": "object",
+      "description": "Represents a user's profile with core information.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the UserProfile entity."
+        },
+        "username": {
+          "type": "string",
+          "description": "User's username."
+        },
+        "email": {
+          "type": "string",
+          "description": "User's email address.",
+          "format": "email"
+        },
+        "dateJoined": {
+          "type": "string",
+          "description": "Date and time when the user joined the application.",
+          "format": "date-time"
+        },
+        "height": {
+          "type": "number",
+          "description": "User's height in centimeters."
+        },
+        "weight": {
+          "type": "number",
+          "description": "User's weight in kilograms."
+        }
+      },
+      "required": [
+        "id",
+        "username",
+        "email",
+        "dateJoined"
+      ]
+    },
+    "FitnessActivity": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "FitnessActivity",
+      "type": "object",
+      "description": "Represents a fitness activity logged by a user.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the FitnessActivity entity."
+        },
+        "userProfileId": {
+          "type": "string",
+          "description": "Reference to UserProfile. (Relationship: UserProfile 1:N FitnessActivity)"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of activity (e.g., Running, Swimming, Cycling, Workout)."
+        },
+        "duration": {
+          "type": "number",
+          "description": "Duration of the activity in minutes."
+        },
+        "distance": {
+          "type": "number",
+          "description": "Distance covered during the activity in kilometers."
+        },
+        "calories": {
+          "type": "number",
+          "description": "Number of calories burned during the activity."
+        },
+        "steps": {
+          "type": "number",
+          "description": "Number of steps taken during the activity."
+        },
+        "heartRate": {
+          "type": "number",
+          "description": "Average heart rate in beats per minute."
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "Date and time when the activity was logged.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "userProfileId",
+        "type",
+        "duration",
+        "calories",
+        "timestamp"
+      ]
+    },
+    "FoodLog": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "FoodLog",
+      "type": "object",
+      "description": "Represents a food item logged by a user.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the FoodLog entity."
+        },
+        "userProfileId": {
+          "type": "string",
+          "description": "Reference to UserProfile. (Relationship: UserProfile 1:N FoodLog)"
+        },
+        "mealType": {
+          "type": "string",
+          "enum": ["Breakfast", "Lunch", "Dinner", "Snack"],
+          "description": "The type of meal."
+        },
+        "foodName": {
+          "type": "string",
+          "description": "Name of the food or meal."
+        },
+        "calories": {
+          "type": "number",
+          "description": "Estimated calories."
+        },
+        "protein": {
+            "type": "number",
+            "description": "Estimated protein in grams."
+        },
+        "photoUrl": {
+          "type": "string",
+          "description": "URL of an uploaded photo of the meal.",
+          "format": "uri"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "Date and time when the meal was logged.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "userProfileId",
+        "mealType",
+        "foodName",
+        "calories",
+        "protein",
+        "timestamp"
+      ]
+    },
+    "BmiRecord": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "BmiRecord",
+      "type": "object",
+      "description": "Represents a user's BMI record.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the BmiRecord entity."
+        },
+        "userProfileId": {
+          "type": "string",
+          "description": "Reference to UserProfile. (Relationship: UserProfile 1:N BmiRecord)"
+        },
+        "height": {
+          "type": "number",
+          "description": "User's height in meters."
+        },
+        "weight": {
+          "type": "number",
+          "description": "User's weight in kilograms."
+        },
+        "bmi": {
+          "type": "number",
+          "description": "Calculated BMI value."
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "Date and time when the BMI was calculated.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "userProfileId",
+        "height",
+        "weight",
+        "bmi",
+        "timestamp"
+      ]
+    },
+    "Goal": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Goal",
+      "type": "object",
+      "description": "Represents a user's fitness goal.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Goal entity."
+        },
+        "userProfileId": {
+          "type": "string",
+          "description": "Reference to UserProfile. (Relationship: UserProfile 1:N Goal)"
+        },
+        "goalType": {
+          "type": "string",
+          "description": "Type of goal (e.g., steps, distance, calories)."
+        },
+        "targetValue": {
+          "type": "number",
+          "description": "Target value for the goal."
+        },
+        "unit": {
+          "type": "string",
+          "description": "Unit of measurement (e.g., steps, km, kcal)."
+        },
+        "timeFrame": {
+          "type": "string",
+          "description": "Time frame for the goal (e.g., daily, weekly)."
+        },
+        "startDate": {
+          "type": "string",
+          "description": "Start date for the goal.",
+          "format": "date-time"
+        },
+        "endDate": {
+          "type": "string",
+          "description": "End date for the goal.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "userProfileId",
+        "goalType",
+        "targetValue",
+        "unit",
+        "timeFrame",
+        "startDate",
+        "endDate"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "google.com"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "UserProfile",
+          "schema": {
+            "$ref": "#/backend/entities/UserProfile"
+          },
+          "description": "Stores user profile information.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique ID of the user."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/fitnessActivities/{fitnessActivityId}",
+        "definition": {
+          "entityName": "FitnessActivity",
+          "schema": {
+            "$ref": "#/backend/entities/FitnessActivity"
+          },
+          "description": "Stores fitness activity records for a specific user.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique ID of the user."
+            },
+            {
+              "name": "fitnessActivityId",
+              "description": "The unique ID of the fitness activity record."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/foodLogs/{foodLogId}",
+        "definition": {
+          "entityName": "FoodLog",
+          "schema": {
+            "$ref": "#/backend/entities/FoodLog"
+          },
+          "description": "Stores food log records for a specific user.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique ID of the user."
+            },
+            {
+              "name": "foodLogId",
+              "description": "The unique ID of the food log record."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/bmiRecords/{bmiRecordId}",
+        "definition": {
+          "entityName": "BmiRecord",
+          "schema": {
+            "$ref": "#/backend/entities/BmiRecord"
+          },
+          "description": "Stores BMI records for a specific user.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique ID of the user."
+            },
+            {
+              "name": "bmiRecordId",
+              "description": "The unique ID of the BMI record."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/goals/{goalId}",
+        "definition": {
+          "entityName": "Goal",
+          "schema": {
+            "$ref": "#/backend/entities/Goal"
+          },
+          "description": "Stores fitness goals for a specific user.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique ID of the user."
+            },
+            {
+              "name": "goalId",
+              "description": "The unique ID of the fitness goal."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore structure is designed to store user profiles, fitness activities, food logs, BMI records, and goals under the /users/{userId} collection to enforce path-based authorization."
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero",
+      "description": "Person running at sunset",
+      "imageUrl": "https://images.unsplash.com/photo-1676534970116-8b2cf23c59dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxydW5uaW5nJTIwc3Vuc2V0fGVufDB8fHx8MTc2MTgxNjkxNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "running sunset"
+    },
+    {
+      "id": "feature-workout",
+      "description": "Person doing a workout",
+      "imageUrl": "https://images.unsplash.com/photo-1686247167200-d74f0f24b5be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3b3Jrb3V0JTIwZml0bmVzc3xlbnwwfHx8fDE3NjE4MTMxODd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "workout fitness"
+    },
+    {
+      "id": "feature-progress",
+      "description": "Upward trending chart",
+      "imageUrl": "https://images.unsplash.com/photo-1543286386-2e659306cd6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwcm9ncmVzcyUyMGNoYXJ0fGVufDB8fHx8MTc2MTc0Mjg2MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "progress chart"
+    },
+    {
+      "id": "feature-goal",
+      "description": "Person achieving a goal on a mountain top",
+      "imageUrl": "https://images.unsplash.com/photo-1683516993458-528c4b34c5e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxnb2FsJTIwc3VjY2Vzc3xlbnwwfHx8fDE3NjE4MzIyMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "goal success"
+    }
+  ]
+}
